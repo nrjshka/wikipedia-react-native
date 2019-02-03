@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet } from 'react-native';
 
 import { Consumer } from '../Theme/';
 
@@ -9,8 +9,11 @@ export default class Home extends PureComponent<Props> {
     return (
       <Consumer>
         {({ currentThemeConfig }) => (
-          <View style={styles(currentThemeConfig.backgroundColor).homeContainer}>
-            <Text>Home</Text>
+          <View style={styles(currentThemeConfig).homeContainer}>
+            <TextInput
+              style={styles(currentThemeConfig).homeTextInput}
+              placeholder="🔍 Поиск статьи по названию"
+            />
           </View>
         )}
       </Consumer>
@@ -18,10 +21,20 @@ export default class Home extends PureComponent<Props> {
   }
 }
 
-const styles = backgroundColor => StyleSheet.create({
+const styles = ({ backgroundColor }) => StyleSheet.create({
   homeContainer: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor,
+    paddingTop: 40,
   },
+  homeTextInput: {
+    width: '90%',
+    height: 30,
+    textAlign: 'center',
+    backgroundColor: 'white',
+    height: 30,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: 30,
+  }
 });

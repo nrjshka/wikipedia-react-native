@@ -39,6 +39,6 @@ export default memo(props => {
   );
 
   return (
-    <Navigation {...props} />
+    <Navigation {...props}/>
   );
 });
