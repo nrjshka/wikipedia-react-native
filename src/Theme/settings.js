@@ -7,6 +7,10 @@ export const themes = {
       activeColor: '#51A5F8',
       inactiveColor: '#466A93',
     },
+    header: {
+      backgroundColor: '#24303F',
+      color: 'white',
+    }
   },
   white: {
     backgroundColor: 'white',
@@ -16,6 +20,10 @@ export const themes = {
       activeColor: '#51A5F8',
       inactiveColor: '#466A93',
     },
+    header: {
+      backgroundColor: '#F4F4F4',
+      color: 'black',
+    }
   }
 };
 

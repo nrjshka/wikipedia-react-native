@@ -13,7 +13,7 @@ export default class Settings extends PureComponent<Props> {
             <View style={{flexDirection: 'row'}}>
               <Text style={style(currentThemeConfig).settingsText}>Dark theme</Text>
               <Switch 
-                style={{flex: 1}}
+                style={{flex: 1, marginLeft: "40%"}}
                 value={currentTheme === 'dark'}
                 onValueChange={changeTheme}
               />
@@ -29,7 +29,7 @@ const style = ({ backgroundColor, color }) => StyleSheet.create({
   settingsView: {
     flex: 1, 
     justifyContent: 'flex-start', 
-    paddingTop: 40,
+    paddingTop: 60,
     backgroundColor,
   },
   settingsText: {
@@ -37,5 +37,6 @@ const style = ({ backgroundColor, color }) => StyleSheet.create({
     paddingTop: 10,
     paddingLeft: '5%',
     color,
+    fontSize: 17,
   }
 });

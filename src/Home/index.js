@@ -10,10 +10,13 @@ export default class Home extends PureComponent<Props> {
       <Consumer>
         {({ currentThemeConfig }) => (
           <View style={styles(currentThemeConfig).homeContainer}>
-            <TextInput
-              style={styles(currentThemeConfig).homeTextInput}
-              placeholder="🔍 Поиск статьи по названию"
-            />
+            <View style={styles(currentThemeConfig).homeHeader}>
+              <TextInput
+                style={styles(currentThemeConfig).homeTextInput}
+                placeholder="🔍 Поиск статьи по названию"
+                placeholderTextColor={currentThemeConfig.color}
+              />
+            </View>
           </View>
         )}
       </Consumer>
@@ -21,20 +24,28 @@ export default class Home extends PureComponent<Props> {
   }
 }
 
-const styles = ({ backgroundColor }) => StyleSheet.create({
+const styles = ({ backgroundColor, header }) => StyleSheet.create({
   homeContainer: {
     flex: 1,
     backgroundColor,
+  },
+  homeHeader: {
     paddingTop: 40,
+    paddingBottom: 30,
+    marginBottom: 2,
+    height: 100,
+    width: '100%',
+    backgroundColor: header.backgroundColor,
   },
   homeTextInput: {
     width: '90%',
     height: 30,
     textAlign: 'center',
-    backgroundColor: 'white',
+    backgroundColor,
+    color: header.color,
     height: 30,
     marginLeft: 'auto',
     marginRight: 'auto',
-    borderRadius: 30,
+    borderRadius: 10,
   }
 });
