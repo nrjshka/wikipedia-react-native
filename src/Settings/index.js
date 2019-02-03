@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, Switch, View, StatusBar } from 'react-native';
 
 import { Consumer } from '../Theme/';
 
 type Props = {};
-export default class Settings extends Component<Props> {
+export default class Settings extends PureComponent<Props> {
   render() {
     return (
       <Consumer>
         {({ changeTheme, currentTheme, currentThemeConfig }) => (
           <View 
             style={{
-              backgroundColor: currentThemeConfig.backgroundColor,
               flex: 1, 
               justifyContent: 'flex-start', 
-              paddingTop: 40, 
+              paddingTop: 40,
+              backgroundColor: currentThemeConfig.backgroundColor
             }}
           >
             <View style={{flexDirection: 'row'}}>

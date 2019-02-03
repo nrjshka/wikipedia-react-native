@@ -1,20 +1,28 @@
-import React from 'react';
-import { View, StatusBar } from 'react-native';
+import React, { memo } from 'react';
+import { View, StatusBar, StyleSheet } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 
 import Theme, { Consumer } from './Theme/';
 import Navigation from './Navigation';
 
-export default () => (
+export default memo(() => (
   <Theme>
     <Consumer>
       {({ currentThemeConfig }) => (
-        <View style={{ flex: 1}}>
+        <View style={styles(currentThemeConfig.backgroundColor).App}>
           <StatusBar
             barStyle={currentThemeConfig.statusBarStyle}
           />
-          <Navigation />
+          <Navigation currentThemeConfig={currentThemeConfig} />
         </View>
       )}
     </Consumer>
   </Theme>
-);
+));
+
+const styles = backgroundColor => StyleSheet.create({
+  App: {
+    flex: 1,
+    backgroundColor,
+  },
+});

@@ -1,13 +1,27 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, { PureComponent } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+
+import { Consumer } from '../Theme/';
 
 type Props = {};
-export default class Home extends Component<Props> {
+export default class Home extends PureComponent<Props> {
   render() {
     return (
-      <View style={{backgroundColor: '#FFF', flex: 1, justifyContent: 'center'}}>
-        <Text>Home</Text>
-      </View>
+      <Consumer>
+        {({ currentThemeConfig }) => (
+          <View style={styles(currentThemeConfig.backgroundColor).homeContainer}>
+            <Text>Home</Text>
+          </View>
+        )}
+      </Consumer>
     );
   }
 }
+
+const styles = backgroundColor => StyleSheet.create({
+  homeContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor,
+  },
+});
