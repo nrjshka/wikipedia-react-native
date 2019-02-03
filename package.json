@@ -13,7 +13,8 @@
     "react-native-paper": "^2.9.1",
     "react-native-vector-icons": "^6.2.0",
     "react-navigation": "^3.1.2",
-    "react-navigation-material-bottom-tabs": "^1.0.0"
+    "react-navigation-material-bottom-tabs": "^1.0.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
